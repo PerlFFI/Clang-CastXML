@@ -5,6 +5,7 @@ use warnings;
 use 5.020;
 use File::Which ();
 use Carp ();
+use Env qw( @PATH );
 
 # ABSTRACT: Find the CastXML executable, if available.
 # VERSION
@@ -32,6 +33,13 @@ if it cannot be found.
 sub where ($)
 {
   return $ENV{PERL_CLANG_CASTXML_PATH} if defined $ENV{PERL_CLANG_CASTXML_PATH};
+
+  local $ENV{PATH} = $ENV{PATH};
+
+  if(eval { require Alien::castxml; 1 })
+  {
+    unshift @PATH, Alien::castxml->bin_dir;
+  }
 
   my $exe = File::Which::which('castxml');
   return $exe if defined $exe;
