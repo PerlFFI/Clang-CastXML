@@ -3,6 +3,7 @@ package Clang::CastXML::Find;
 use strict;
 use warnings;
 use 5.020;
+use experimental qw( signatures );
 use File::Which ();
 use Carp ();
 use Env qw( @PATH );
