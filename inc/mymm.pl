@@ -13,13 +13,14 @@ sub myWriteMakefile
     my $exe = eval { require './lib/Clang/CastXML/Find.pm'; Clang::CastXML::Find->where };
     if(my $error = $@)
     {
-      say STDERR "Unable to find CastXML.  Install the package with your package manager,";
-      say STDERR "or set PERL_CLANG_CASTXML_PATH to the full path location of your castxml";
-      say STDERR "error:$error";
-      exit;
+      $args{CONFIGURE_REQUIRES}->{'Alien::castxml'} = 0;
+      say "casexml not found, falling back on Alien::castxml";
     }
-    say "found castxml at:";
-    say $exe;
+    else
+    {
+      say "found castxml at:";
+      say $exe;
+    }
   }
 
   require ExtUtils::MakeMaker;

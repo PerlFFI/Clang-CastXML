@@ -10,6 +10,7 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
+  Devel::Hide
   ExtUtils::MakeMaker
   File::Which
   Path::Tiny
