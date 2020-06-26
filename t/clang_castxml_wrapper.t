@@ -10,6 +10,10 @@ subtest basic => sub {
   note "exe = $exe";
   ok -x $exe, "exe is executable";
 
+  my $version = $wrapper->version;
+  note "version = $version";
+  is $version, D();
+
 };
 
 subtest raw => sub {
@@ -47,7 +51,7 @@ subtest raw => sub {
       call ret => T();
       call sig => 0;
     },
-    'success',
+    'fail',
   );
 
 };

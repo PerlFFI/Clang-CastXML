@@ -33,6 +33,24 @@ has exe => (
   },
 );
 
+=head2 version
+
+ my $version = $wrapper->version;
+
+Returns the CastXML version number.
+
+=cut
+
+has version => (
+  is      => 'ro',
+  lazy    => 1,
+  default => sub ($self) {
+    my $result = $self->raw('--version');
+    return $1 if $result->is_success && $result->out =~ /castxml version (\S+)/;
+    Carp::croak("Unable to get the CastXML version");
+  },
+);
+
 =head1 METHODS
 
 =head2 raw
