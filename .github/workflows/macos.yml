@@ -25,6 +25,7 @@ jobs:
       - name: Set up Perl
         run: |
           brew install perl
+          brew install castxml
           curl https://cpanmin.us | perl - App::cpanminus -n
           echo "##[add-path]/Users/runner/perl5/bin"
 
@@ -50,6 +51,6 @@ jobs:
           dzil authordeps --missing | cpanm -n
           dzil listdeps --missing   | cpanm -n
       - name: Install Dynamic Dependencies
-        run: dzil run --no-build 'cpanm --installdeps .'
+        run: dzil run --no-build 'cpanm --installdeps -v .'
       - name: Run Tests
         run: dzil test -v
