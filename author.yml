@@ -7,6 +7,10 @@ pod_spelling_system:
   # intentionally
   stopwords:
     - CastXML
+    - castxml
+    - exe
+    - ret
+    - sig
 
 pod_coverage:
   skip: 0
