@@ -16,7 +16,9 @@ $modules{$_} = $_ for qw(
   File::Which
   Moo
   Path::Tiny
+  Ref::Util
   Test2::V0
+  Test::XML
 );
 
 
