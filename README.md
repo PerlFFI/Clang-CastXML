@@ -2,6 +2,54 @@
 
 C-family abstract syntax tree output tool
 
+# SYNOPSIS
+
+```perl
+use Clang::CastXML;
+use Path::Tiny qw( path );
+
+my $castxml = Clang::CastXML->new;
+my $container = $castxml->introspect( path('foo.C') );
+my $raw_xml = $container->to_xml;
+```
+
+# DESCRIPTION
+
+This class provides an interface to CastXML for introspecting C/C++ code.
+This can be useful for writing FFI or XS bindings.
+
+# PROPERTIES
+
+## wrapper
+
+```perl
+my $wrapper = $castxml->wrapper;
+```
+
+Returns the [Clang::CastXML::Wrapper](https://metacpan.org/pod/Clang::CastXML::Wrapper) instance.  The default is usually reasonable.
+
+# METHODS
+
+## introspect
+
+```perl
+my $container = $castxml->introspect($source);
+my $container = $castxml->introspect($source, $dest);
+```
+
+This runs CastXML on the given source and returns an XML container which can be used
+to get the raw XML, or to convert it to a more useful format.
+
+`$source` should be either a [Path::Tiny](https://metacpan.org/pod/Path::Tiny) object for the C/C++ source file, or
+a string containing the C/C++ source.
+
+`$dest` is optional, and if provided should be a [Path::Tiny](https://metacpan.org/pod/Path::Tiny) object where the
+XML will be written.  If not provided, then a temporary file will be created.
+
+`$container` is an instance of Clang::CastXML::XML.
+
+If an error happens during the introspection, an exception will be thrown.
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>

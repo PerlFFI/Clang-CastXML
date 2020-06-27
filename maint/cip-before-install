@@ -3,4 +3,4 @@
 set -ex
 
 cip sudo apt-get update
-cip sudo apt-get install castxml
+cip sudo apt-get install castxml libexpat1-dev
