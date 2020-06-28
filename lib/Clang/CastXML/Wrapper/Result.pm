@@ -10,7 +10,7 @@ use experimental qw( signatures );
 =head1 SYNOPSIS
 
  use Clang::CastXML::Wrapper;
-
+ 
  my $wrapper = Clang::CastXML::Wrapper->new;
  my $result = $wrapper->raw('--version');
 

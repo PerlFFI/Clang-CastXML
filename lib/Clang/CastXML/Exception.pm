@@ -14,17 +14,17 @@ use overload
 
  package Clang::CastXML::Exception::MyException {
    use Moose;
-
+ 
    extends 'Clang::CastXML::Exception';
    has x => ( is => 'ro' );
-
+ 
    sub message
    {
      my($self) = @_;
      sprintf "oops error with x = %d", $self->x;
    }
  }
-
+ 
  # dies with an object expression tha stringifies to
  # "oops error with x = 1 at xxx.pl line xxx"
  Clang::CastXML::Exception::MyException->throw( x => 1);

@@ -13,7 +13,7 @@ use Clang::CastXML::Exception::ProcessException::BadCastXMLVersionException;
 =head1 SYNOPSIS
 
  use Clang::CastXML::Wrapper;
-
+ 
  my $wrapper = Clang::CastXML::Wrapper->new;
  my $result = $wrapper->raw('--version');
 
