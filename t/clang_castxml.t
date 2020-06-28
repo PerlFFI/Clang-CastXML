@@ -30,7 +30,7 @@ subtest basic => sub {
       is(
         $xml = $castxml->introspect(path('corpus/src/simple.C')),
         object {
-          call [ isa => 'Clang::CastXML::XML' ] => T();
+          call [ isa => 'Clang::CastXML::Container' ] => T();
           call result => object {
             call [ isa => 'Clang::CastXML::Wrapper::Result' ] => T();
           };
