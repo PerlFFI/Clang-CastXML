@@ -52,4 +52,51 @@ subtest 'basic' => sub {
 
 };
 
+subtest 'bad xml' => sub {
+
+  require Clang::CastXML::Container;
+  require Clang::CastXML::Wrapper::Result;
+
+  my $xml;
+
+  is(
+    dies {
+      $xml = Clang::CastXML::Container->new(
+        result => Clang::CastXML::Wrapper::Result->new(
+          wrapper => Clang::CastXML::Wrapper->new,
+          out => '',
+          err => "error: some error\n",
+          args => [],
+          ret => 0,
+          sig => 0,
+        ),
+        source => do {
+          Path::Tiny->tempfile;
+        },
+        dest => do {
+          my $dest = Path::Tiny->tempfile;
+          $dest->spew("<foo></bar>");
+          $dest;
+        },
+      );
+    },
+    F(),
+  );
+
+  my $ex;
+
+  is(
+    $ex = dies {
+      $xml->to_href;
+    },
+    object {
+      call [ isa => 'Clang::CastXML::Exception' ] => T();
+      call [ isa => 'Clang::CastXML::Exception::ParseException' ] => T();
+    },
+  );
+
+  note $ex;
+
+};
+
 done_testing;
