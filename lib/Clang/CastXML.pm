@@ -4,7 +4,7 @@ use Moo;
 use 5.020;
 use experimental qw( signatures );
 use Ref::Util qw( is_blessed_ref );
-use Clang::CastXML::XML;
+use Clang::CastXML::Container;
 use Path::Tiny ();
 use Carp ();
 
@@ -60,7 +60,7 @@ a string containing the C/C++ source.
 C<$dest> is optional, and if provided should be a L<Path::Tiny> object where the
 XML will be written.  If not provided, then a temporary file will be created.
 
-C<$container> is an instance of Clang::CastXML::XML.
+C<$container> is an instance of L<Clang::CastXML::Container>.
 
 If an error happens during the introspection, an exception will be thrown.
 
@@ -95,7 +95,7 @@ sub introspect ($self, $source, $dest=undef)
 
   if($result->is_success)
   {
-    return Clang::CastXML::XML->new(
+    return Clang::CastXML::Container->new(
       result => $result,
       source => $source,
       dest   => $dest,

@@ -46,7 +46,7 @@ a string containing the C/C++ source.
 `$dest` is optional, and if provided should be a [Path::Tiny](https://metacpan.org/pod/Path::Tiny) object where the
 XML will be written.  If not provided, then a temporary file will be created.
 
-`$container` is an instance of Clang::CastXML::XML.
+`$container` is an instance of [Clang::CastXML::Container](https://metacpan.org/pod/Clang::CastXML::Container).
 
 If an error happens during the introspection, an exception will be thrown.
 

@@ -1,4 +1,4 @@
-package Clang::CastXML::XML;
+package Clang::CastXML::Container;
 
 use Moo;
 use 5.020;
