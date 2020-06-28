@@ -7,6 +7,7 @@ use Ref::Util qw( is_blessed_ref is_ref );
 use Clang::CastXML::Container;
 use Path::Tiny ();
 use Carp ();
+use Clang::CastXML::Exception::ProcessException::IntrospectException;
 
 # ABSTRACT: C-family abstract syntax tree output tool
 # VERSION
@@ -103,7 +104,9 @@ sub introspect ($self, $source, $dest=undef)
   }
   else
   {
-    die "todo";
+    Clang::CastXML::Exception::ProcessException::IntrospectException->throw(
+      result => $result,
+    );
   }
 }
 

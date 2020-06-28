@@ -17,8 +17,12 @@ $modules{$_} = $_ for qw(
   Moo
   Path::Tiny
   Ref::Util
+  StackTrace::Auto
   Test2::V0
   Test::XML
+  Throwable
+  XML::Parser
+  YAML
 );
 
 
