@@ -59,6 +59,9 @@ sub to_href ($self)
         delete $attrs{location}; # redundant
         if($element eq 'Function')
         {
+          # TODO: This works for current Clang (probably).  If we need to
+          # support other compiles, like Visual C++ this computed
+          # mangle will probably have to be updated.
           my $bad_mangle = '_Z' . length($attrs{name}) . $attrs{name};
           delete $attrs{mangled} if $attrs{mangled} eq $bad_mangle;
         }
