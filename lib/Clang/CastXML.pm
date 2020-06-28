@@ -15,7 +15,7 @@ use Carp ();
 
  use Clang::CastXML;
  use Path::Tiny qw( path );
-
+ 
  my $castxml = Clang::CastXML->new;
  my $container = $castxml->introspect( path('foo.C') );
  my $raw_xml = $container->to_xml;
