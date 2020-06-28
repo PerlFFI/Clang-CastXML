@@ -3,9 +3,9 @@ package Clang::CastXML::Wrapper;
 use Moo;
 use 5.020;
 use experimental qw( signatures );
-use Carp ();
 use Capture::Tiny ();
 use Clang::CastXML::Wrapper::Result;
+use Clang::CastXML::Exception::ProcessException::BadCastXMLVersionException;
 
 # ABSTRACT: Lowish level wrapper around the CastXML binary
 # VERSION
@@ -47,7 +47,9 @@ has version => (
   default => sub ($self) {
     my $result = $self->raw('--version');
     return $1 if $result->is_success && $result->out =~ /castxml version (\S+)/;
-    Carp::croak("Unable to get the CastXML version");
+    Clang::CastXML::Exception::ProcessException::BadCastXMLVersionException->throw(
+      result => $result
+    );
   },
 );
 

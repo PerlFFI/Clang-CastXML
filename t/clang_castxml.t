@@ -41,4 +41,21 @@ subtest basic => sub {
 
 };
 
+subtest error => sub {
+
+  my $castxml = Clang::CastXML->new,
+  my $ex;
+
+  is(
+    $ex = dies { $castxml->introspect('this is some bad c') },
+    object {
+      call [ isa => 'Clang::CastXML::Exception' ] => T();
+      call [ isa => 'Clang::CastXML::Exception::ProcessException::IntrospectException' ] => T();
+    },
+  );
+
+  note $ex->to_string;
+
+};
+
 done_testing;
