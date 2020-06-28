@@ -28,20 +28,9 @@ subtest basic => sub {
       my $xml;
 
       is(
-        $xml = $castxml->introspect(path('corpus/src/simple.C')),
+        $xml = $castxml->introspect($t->{source}),
         object {
           call [ isa => 'Clang::CastXML::Container' ] => T();
-          call result => object {
-            call [ isa => 'Clang::CastXML::Wrapper::Result' ] => T();
-          };
-          call source => object {
-            call [ isa => 'Path::Tiny' ] => T();
-            call basename => match qr/\.C$/;
-          };
-          call dest => object {
-            call [ isa => 'Path::Tiny' ] => T();
-            call basename => match qr/\.xml$/;
-          };
         },
       );
 

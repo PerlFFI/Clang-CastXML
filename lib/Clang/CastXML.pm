@@ -3,7 +3,7 @@ package Clang::CastXML;
 use Moo;
 use 5.020;
 use experimental qw( signatures );
-use Ref::Util qw( is_blessed_ref );
+use Ref::Util qw( is_blessed_ref is_ref );
 use Clang::CastXML::Container;
 use Path::Tiny ();
 use Carp ();
