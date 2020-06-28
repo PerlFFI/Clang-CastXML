@@ -41,7 +41,24 @@ subtest basic => sub {
 
 };
 
-subtest error => sub {
+subtest 'usage error' => sub {
+
+  my $castxml = Clang::CastXML->new,
+  my $ex;
+
+  is(
+    $ex = dies { $castxml->introspect([]) },
+    object {
+      call [ isa => 'Clang::CastXML::Exception' ] => T();
+      call [ isa => 'Clang::CastXML::Exception::UsageException' ] => T();
+    },
+  );
+
+  note $ex->to_string;
+
+};
+
+subtest 'castxml error' => sub {
 
   my $castxml = Clang::CastXML->new,
   my $ex;
