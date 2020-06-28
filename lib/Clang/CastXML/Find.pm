@@ -49,3 +49,9 @@ sub where ($)
 }
 
 1;
+
+=head1 SEE ALSO
+
+L<Clang::CastXML>
+
+=cut

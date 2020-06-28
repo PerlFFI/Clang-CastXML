@@ -141,3 +141,9 @@ sub to_href ($self)
 }
 
 1;
+
+=head1 SEE ALSO
+
+L<Clang::CastXML>
+
+=cut
