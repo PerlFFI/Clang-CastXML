@@ -12,7 +12,14 @@ use Clang::CastXML::Exception::ProcessException::BadCastXMLVersionException;
 
 =head1 SYNOPSIS
 
+ use Clang::CastXML::Wrapper;
+
+ my $wrapper = Clang::CastXML::Wrapper->new;
+ my $result = $wrapper->raw('--version');
+
 =head1 DESCRIPTION
+
+This class provides an interface for executing L<CastXML>.
 
 =head1 PROPERTIES
 
@@ -59,28 +66,9 @@ has version => (
 
  my $result = $wrapper->raw(@arguments);
 
-Runs the castxml command with the given arguments.  The result is a hash
-ref with these keys:
+Run CastXML with the given C<@arguments>.
 
-=over 4
-
-=item out
-
-The stdout of the process.
-
-=item err
-
-The stderr of the process.
-
-=item ret
-
-The return value of the process (0 is for success)
-
-=item sig
-
-The signal that terminated the process, if any
-
-=back
+C<$result> is an instance of L<Clang::CastXML::Wrapper::Result>.
 
 =cut
 
@@ -99,3 +87,10 @@ sub raw ($self, @arguments)
 }
 
 1;
+
+=head1 SEE ALSO
+
+L<Clang::CastXML>, L<Clang::CastXML::Wrapper::Result>
+
+=cut
+
