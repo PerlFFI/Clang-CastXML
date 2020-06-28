@@ -6,7 +6,7 @@ use experimental qw( signatures );
 use Ref::Util qw( is_blessed_ref is_ref );
 use Clang::CastXML::Container;
 use Path::Tiny ();
-use Carp ();
+use Clang::CastXML::Exception::UsageException;
 use Clang::CastXML::Exception::ProcessException::IntrospectException;
 
 # ABSTRACT: C-family abstract syntax tree output tool
@@ -84,7 +84,9 @@ sub introspect ($self, $source, $dest=undef)
   }
   else
   {
-    Carp::croak("Source should be either a Path::Tiny instance or string containing the C source");
+    Clang::CastXML::Exception::UsageException->throw(
+      diagnostic => "Source should be either a Path::Tiny instance or string containing the C source",
+    );
   }
 
   $dest //= Path::Tiny->tempfile(
