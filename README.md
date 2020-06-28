@@ -48,7 +48,15 @@ XML will be written.  If not provided, then a temporary file will be created.
 
 `$container` is an instance of [Clang::CastXML::Container](https://metacpan.org/pod/Clang::CastXML::Container).
 
-If an error happens during the introspection, an exception will be thrown.
+May throw an exception:
+
+- [Clang::CastXML::Exception::UsageException](https://metacpan.org/pod/Clang::CastXML::Exception::UsageException)
+
+    If you pass in a `$source` or `$dest` of the wrong type.
+
+- [Clang::CastXML::Exception::ProcessException::IntrospectException](https://metacpan.org/pod/Clang::CastXML::Exception::ProcessException::IntrospectException)
+
+    If there is an error running the `castxml` executable.
 
 # AUTHOR
 

@@ -63,7 +63,19 @@ XML will be written.  If not provided, then a temporary file will be created.
 
 C<$container> is an instance of L<Clang::CastXML::Container>.
 
-If an error happens during the introspection, an exception will be thrown.
+May throw an exception:
+
+=over 4
+
+=item L<Clang::CastXML::Exception::UsageException>
+
+If you pass in a C<$source> or C<$dest> of the wrong type.
+
+=item L<Clang::CastXML::Exception::ProcessException::IntrospectException>
+
+If there is an error running the C<castxml> executable.
+
+=back
 
 =cut
 
@@ -93,6 +105,13 @@ sub introspect ($self, $source, $dest=undef)
     TEMPLATE => 'castxml-XXXXXX',
     SUFFIX   => '.xml',
   );
+
+  unless(is_ref $dest && $dest->isa('Path::Tiny'))
+  {
+    Clang::CastXML::Exception::UsageException->throw(
+      diagnostic => "Destination should be a Path::Tiny object",
+    );
+  }
 
   my $result = $self->wrapper->raw("--castxml-output=1", "-o" => "$dest", "$source");
 

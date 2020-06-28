@@ -28,7 +28,7 @@ with 'Throwable', 'StackTrace::Auto';
 
 =cut
 
-sub message ($self) { die("no message method defined for $self") }
+sub message ($self) { die "no message method defined for $self" }
 
 =head2 to_string
 
