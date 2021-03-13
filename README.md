@@ -1,4 +1,4 @@
-# Clang::CastXML [![Build Status](https://travis-ci.org/PerlFFI/Clang-CastXML.svg)](http://travis-ci.org/PerlFFI/Clang-CastXML) ![windows](https://github.com/PerlFFI/Clang-CastXML/workflows/windows/badge.svg) ![macos](https://github.com/PerlFFI/Clang-CastXML/workflows/macos/badge.svg)
+# Clang::CastXML ![linux](https://github.com/PerlFFI/Clang-CastXML/workflows/linux/badge.svg) ![windows](https://github.com/PerlFFI/Clang-CastXML/workflows/windows/badge.svg) ![macos](https://github.com/PerlFFI/Clang-CastXML/workflows/macos/badge.svg)
 
 C-family abstract syntax tree output tool
 
