@@ -22,7 +22,6 @@ $modules{$_} = $_ for qw(
   Test::XML
   Throwable
   XML::Parser
-  YAML
 );
 
 

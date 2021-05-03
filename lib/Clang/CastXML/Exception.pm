@@ -1,7 +1,7 @@
 package Clang::CastXML::Exception;
 
 use Moo;
-use 5.020;
+use 5.022;
 use experimental qw( signatures );
 use overload
   '""' => sub { shift->to_string . "\n" },

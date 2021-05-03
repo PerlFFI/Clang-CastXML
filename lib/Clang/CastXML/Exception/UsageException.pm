@@ -1,7 +1,7 @@
 package Clang::CastXML::Exception::UsageException;
 
 use Moo;
-use 5.020;
+use 5.022;
 use experimental qw( signatures );
 
 # ABSTRACT: Exception for when the Clang::CastXML is fed rubbish

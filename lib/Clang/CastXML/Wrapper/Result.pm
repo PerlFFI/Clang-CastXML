@@ -1,7 +1,7 @@
 package Clang::CastXML::Wrapper::Result;
 
 use Moo;
-use 5.020;
+use 5.022;
 use experimental qw( signatures );
 
 # ABSTRACT: The result of a Clang::CastXML::Wrapper run
