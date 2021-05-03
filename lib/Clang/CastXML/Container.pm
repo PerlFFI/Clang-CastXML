@@ -1,7 +1,7 @@
 package Clang::CastXML::Container;
 
 use Moo;
-use 5.020;
+use 5.022;
 use experimental qw( signatures );
 use XML::Parser;
 use Clang::CastXML::Exception::ParseException;
@@ -104,7 +104,7 @@ sub to_href ($self)
 
         # Fixups
         delete $attrs{location}; # redundant
-        if($element eq 'Function')
+        if($element =~ /^(Function|Variable)$/n)
         {
           # TODO: This works for current Clang (probably).  If we need to
           # support other compiles, like Visual C++ this computed

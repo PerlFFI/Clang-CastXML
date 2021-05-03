@@ -1,7 +1,7 @@
 package Clang::CastXML::Exception::ParseException;
 
 use Moo;
-use 5.020;
+use 5.022;
 use experimental qw( signatures );
 
 # ABSTRACT: Exception for when XML parsing fails

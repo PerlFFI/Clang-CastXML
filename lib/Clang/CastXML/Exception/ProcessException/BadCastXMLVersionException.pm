@@ -1,7 +1,7 @@
 package Clang::CastXML::Exception::ProcessException::BadCastXMLVersionException;
 
 use Moo;
-use 5.020;
+use 5.022;
 use experimental qw( signatures );
 
 # ABSTRACT: Exception for when we can't find the CastXML version
