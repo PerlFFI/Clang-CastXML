@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}},
 
 {{$NEXT}}
+
+0.02      2021-05-03 15:42:16 -0600
   - Fixup top-level variables that are incorrectly mangled (gh#8, gh#9)
   - Remove test dependency on YAML (gh#9)
   - Drop support for Perl 5.20 (gh#9)
