@@ -2,4 +2,7 @@ Clang-CastXML-*
 /.build/
 *.swp
 
-
+/Clang-CastXML-*
+/.build
+*.old
+*.orig
